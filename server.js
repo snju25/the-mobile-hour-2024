@@ -8,7 +8,9 @@ const port = process.env.PORT || 8000; // Using environment variable for port
 
 // Security enhancements
 app.use(helmet());
-app.use(cors()); // Configure appropriately based on your needs
+app.use(cors({
+    origin: true,
+})); // Configure appropriately based on your needs
 
 // Session configuration
 const sessionConfig = {
