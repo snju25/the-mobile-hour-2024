@@ -21,7 +21,7 @@ orderController.post("/create_order", (request, response) => {
             return;
         }
 
-        if (!/[a-zA-Z-]{2,}/.test(formData.customer_first_name)) {
+        if (!/[a-zA-Z-]{2,}/.test(formData.customer_firstName)) {
             response.render("status.ejs", {
                 status: "Invalid first name",
                 message: "First name must be letters",
@@ -29,7 +29,7 @@ orderController.post("/create_order", (request, response) => {
             return;
         }
 
-        if (!/[a-zA-Z-]{2,}/.test(formData.customer_last_name)) {
+        if (!/[a-zA-Z-]{2,}/.test(formData.customer_lastName)) {
             response.render("status.ejs", {
                 status: "Invalid last name",
                 message: "Last name must be letters",
