@@ -1,0 +1,16 @@
+<% if (accessRole == "manager") { %>
+    <header class="admin_nav">
+        <a href="staff_admin">Users</a>
+        <a href="product_admin">Product</a>
+        <a href="admin_order">Order</a>
+        <a href="changelog">Changelog</a>
+        <a href="/">Logout</a>
+    </header>
+    <% } else if (accessRole == "sales") { %>
+    <header class="admin_nav">
+        <a href="product_admin">Product</a>
+        <a href="admin_order">Order</a>
+        <a href="/">Logout</a>
+    </header>
+    <% } %>
+    

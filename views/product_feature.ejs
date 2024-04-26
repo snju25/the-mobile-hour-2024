@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs") %>
+        <title>Product Features</title>
+</head>
+<body>
+    
+    <%- include("partials/header.ejs") %>
+        <main>
+          <section class="product_indiviual-content">
+            <section class="content-section1">
+                <img src="img/individual_img.jpg" alt="product image">
+                <h2><%= feature.product_name %></h2>
+                <p>$<%= feature.product_price %></p>
+
+            </section>
+
+            <section class="content-section2">
+                <h2><%= feature.product_name %></h2>
+                <h2>(<%= feature.screen_size %>, <%= feature.storage %>,<%= feature.battery %>)</h2><br>
+                <h3>Product Price : $<%= feature.product_price %></h3>
+                <p class="product-description"><%= feature.product_description %></p>
+                <br>
+
+                <section>
+                    <h2>Product Details: </h2>
+                    <h3>Model: <%= feature.product_model %></h3>
+                    <h3>Manufacturer: <%= feature.product_manufacturer %></h3>
+                    <h3>Number in stock: <%= feature.product_stock %></h3>
+                </section>
+                <br>
+
+                <section>
+                    <h2>Product Features</h2>
+                    <h3>Weight: <%= feature.weight %></h3>
+                    <h3>OS: <%= feature.os %></h3>
+                    <h3>Screen Size: <%= feature.screen_size %></h3>
+                    <h3>Resolution: <%= feature.resolution %></h3>
+                    <h3>CPU: <%= feature.cpu %></h3>
+                    <h3>Ram: <%= feature.ram %></h3>
+                    <h3>Storage: <%= feature.storage %></h3>
+                    <h3>Battery: <%= feature.battery %></h3>
+                    <h3>Rear Camera: <%= feature.rear_camera %></h3>
+                    <h3>Front-Camera: <%= feature.front_camera %></h3>
+                </section>
+            </section>
+
+
+          </section >
+            
+          
+
+
+        </main>
+        <!-- <%- include("partials/header.ejs") %> -->
+        <%- include('partials/footer.ejs') %>
+            <!-- Footer -->
+
+</body>
+
+</html>

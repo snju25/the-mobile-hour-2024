@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Mobile Hour Product List</title>
+</head>
+<body>
+    <main>
+        <%- include("partials/header.ejs") %>
+
+            <!-- Header/navigation -->
+            <section class="search_bar_section">
+                <form action="product_list" method="get">
+                    <input type="text" name="search_term" id="search-form" placeholder="Search for product here">
+                    <input type="submit" value="Search" class="search-button">
+                </form>
+            </section>
+
+
+            <section class="product-container">
+                <section class="row">
+                    <section class="section1">
+                        <h2 class="head">Browse brands</h2>
+                        <section class="filtering">
+                            <section class="sort-by-brand">
+                                <h2 class="head2">Brands</h2>
+                                <form action="/product_list" method="get" class="filter-form">
+                                    <label for="brand">Filter by Brand:</label>
+                                    <select name="brand" id="brand">
+                                        <option value="Samsung">Samsung</option>
+                                        <option value="Apple">Apple</option>
+                                        <option value="Huawei">Huawei</option>
+                                        <option value="OnePlus">One Plus</option>
+                                        <!-- Add more brand options as needed -->
+                                    </select>
+                                    <input type="submit" value="Filter" class="filter-button">
+                                </form>
+
+                            </section>
+                            <section class="sort-by-price">
+                                <h2 class="head2">Sort By Price</h2>
+                                <!-- Sort by price form -->
+                                <form action="/product_list" method="get" class="sort-form">
+                                    <label for="sort">Sort by Price:</label>
+                                    <select name="sort" id="sort">
+                                        <option value="Low_price">Low to High</option>
+                                        <option value="High_price">High to Low</option>
+                                    </select>
+                                    <input type="submit" value="Sort" class="sort-button">
+                                </form>
+
+                            </section>
+                        </section>
+
+
+                    </section>
+
+                    <section class="section2">
+
+                        <section class="product_list">
+                            <% for(const product of products) { %>
+                                <article class="product-card">
+                                    <a href="product_feature?id=<%= product.id %>"><img src="img/mobile1.jpg"
+                                            alt="mobile phone"></a>
+                                    <h2>
+                                        <%= product.name %>
+                                    </h2>
+                                    <span>
+                                        <%= product.model %>
+                                    </span>
+                                    <h2 class="product_price">
+                                        $<%= product.price %>
+                                    </h2>
+
+                                    <a href="product_checkout?id=<%= product.id %>"><button class="button">Buy
+                                            Now</button></a>
+                                </article>
+                                <% }%>
+                        </section>
+
+                    </section>
+                </section>
+            </section>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+    </main>
+    <!-- <%- include("partials/header.ejs") %> -->
+    <%- include('partials/footer.ejs') %>
+        <!-- Footer -->
+
+</body>
+
+</html>

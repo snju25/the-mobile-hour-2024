@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs") %>
+        <title>Admin Orders</title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <%- include("partials/admin_nav.ejs")%>
+
+        <hr>
+        <nav class="orders_nav">
+            <a href="/admin_order?status=pending">Pending Orders</a>
+            <a href="/admin_order?status=complete">Complete Orders</a>
+            <a href="/admin_order?status=cancelled">Cancelled Orders</a>
+            <a href="/order_admin_create">Create Order</a>
+        </nav>
+        <hr>
+
+
+            <section>
+                <section class="cols-3 data-list">
+                    <span class="data-list-heading">Product/Customer</span>
+                    <span class="data-list-heading">Order Time</span>
+                    <span class="data-list-heading">Status </span>
+                    <% for ( let order of ordersProducts) { %>
+                        <div>
+                            <%= order.product_name %> / <br>
+                            <%= order.customer_first_name %>
+                            <%= order.customer_last_name %>
+                        </div>
+                        <span>
+                             <%= order.order_datetime.toLocaleString() %> 
+                        </span>
+                        <form action="/admin_order" method="post" class="order-update-form">
+                            <input type="hidden" name="order_id" value="<%= order.order_id %>" />
+                            <select name="status" class="status-select-input">
+                                <option value="" disabled selected>Select</option>
+                                <option value="pending">Pending</option>
+                                <option value="complete">Complete</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <input type="submit" class="button" value="Update" />
+                        </form>
+                    <% } %>
+                </section>
+      
+            </section>
+  
+        <%- include('partials/footer.ejs') %>
+
+
+</body>
+
+</html>

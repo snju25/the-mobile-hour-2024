@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs") %>
+        <title>Admin Edit Product</title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <%- include("partials/admin_nav.ejs")%>
+
+            <form action="/edit_product" method="post" class="form">
+                <input type="hidden" name="product_id" value="<%= editProduct.id %>" />
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="<%= editProduct.name %>" />
+                <label for="stock">Stock:</label>
+                <input type="text" name="stock" id="stock" value="<%= editProduct.stock %>" />
+                <label for="model">Model:</label>
+                <input type="text" name="model" id="model" value="<%= editProduct.model %>" />
+                <label for="manufacturer">manufacturer:</label>
+                <input type="text" name="manufacturer" id="manufacturer" value="<%= editProduct.manufacturer %>" />
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price" value="<%= editProduct.price %>" />
+                <label for="feature_id">Select Feature ID:</label>
+                <select name="feature_id" id="feature_id">
+                    <% features.forEach(function(feature) { %>
+                        <option value="<%= feature.id %>" <%= editProduct.feature_id == feature.id ? 'selected' : '' %> >
+                            <%= feature.id %> - <%= feature.dimensions %> - <%= feature.os %>
+                        </option>
+                    <% }); %>
+                </select>
+                <label for="description">Description:</label>
+                <!-- Careful formatting to avoid whitespace in textarea  -->
+                <textarea name="description" id="description"><%= editProduct.description %></textarea>
+    
+                <input type="hidden" name="last_updated_by_staff_id" id="last_updated_by_staff_id"
+                    value="<%= editProduct.last_updated_by_staff_id %>" />
+
+                <input type="submit" name="action" class="button" value="delete" />
+                <% if (editProduct.id=="0" ) { %>
+                    <input type="submit" name="action" class="button" value="create" />
+                    <% } else { %>
+                        <input type="submit" name="action" class="button" value="update" />
+                        <% } %>
+            </form>
+            </section>
+
+            <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>

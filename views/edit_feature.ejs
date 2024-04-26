@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs") %>
+        <title>Admin Update Features</title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <%- include("partials/admin_nav.ejs")%>
+
+            <form action="/edit_feature" method="post" class="form">
+                <input type="hidden" name="feature_id" value="<%= editFeature.id %>" />
+                <label for="weight">Weight:</label>
+                <input type="text" name="weight" id="weight" value="<%= editFeature.weight %>" />
+                <label for="dimensions">Dimensions:</label>
+                <input type="text" name="dimensions" id="dimensions" value="<%= editFeature.dimensions %>" />
+                <label for="os">OS:</label>
+                <input type="text" name="os" id="os" value="<%= editFeature.os %>" />
+                <label for="screen_size">Screen Size:</label>
+                <input type="text" name="screen_size" id="screen_size" value="<%= editFeature.screen_size %>" />
+                <label for="resolution">Resolution:</label>
+                <input type="text" name="resolution" id="resolution" value="<%= editFeature.resolution %>" />
+                <label for="cpu">CPU:</label>
+                <input type="text" name="cpu" id="cpu" value="<%= editFeature.cpu %>" />
+                <label for="ram">RAM:</label>
+                <input type="text" name="ram" id="ram" value="<%= editFeature.ram %>" />
+                <label for="storage">Storage:</label>
+                <input type="text" name="storage" id="storage" value="<%= editFeature.storage %>" />
+                <label for="battery">Battery:</label>
+                <input type="text" name="battery" id="battery" value="<%= editFeature.battery %>" />
+                <label for="rear_camera">Rear Camera:</label>
+                <input type="text" name="rear_camera" id="rear_camera" value="<%= editFeature.rear_camera %>" />
+                <label for="front_camera">Front Camera:</label>
+                <input type="text" name="front_camera" id="front_camera" value="<%= editFeature.front_camera %>" />
+
+                
+
+                <input type="submit" class="button" name="action" value="delete" />
+                <% if (editFeature.id=="0" ) { %>
+                    <input type="submit" class="button" name="action" value="create" />
+                    <% } else { %>
+                        <input type="submit" class="button" name="action" value="update" />
+                        <% } %>
+            </form>
+            </section>
+
+            <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>

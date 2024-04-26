@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("partials/head.ejs") %>
+        <title>Mobile Hour - Staff Login</title>
+    </head>
+    <body>
+        <main>
+            <%- include("partials/header.ejs") %>
+            <section class="tester-view">
+                <h3>Hey tester, These are the credentials to log into the staff area. </h3>
+                <h3>Manager login Details</h3>
+                <p><strong>Username:</strong> sanju25</p>
+                <p><strong>password:</strong> abc123</p>
+
+                <h3>Sales Staff login Details</h3>
+                <p><strong>Username:</strong> jess</p>
+                <p><strong>password:</strong> abc123</p>    
+                
+            </section>
+            <section class="admin_login">
+                <form
+                    action="/staff_login"
+                    method="post"
+                >
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" />
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" />
+                    <br>
+                    <a href="/" class="button">Back</a>
+                    <input type="submit" class="button" value="Login" />
+                </form>
+            </section>
+            <%- include("partials/footer.ejs") %>
+        </main>
+    </body>
+</html>

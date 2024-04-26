@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs") %>
+        <title>Admin Create Products</title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <%- include("partials/admin_nav.ejs")%>
+
+            <form action="/create_product" method="post" class="form">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" />
+                <label for="stock">Stock:</label>
+                <input type="text" name="stock" id="stock" />
+                <label for="model">Model:</label>
+                <input type="text" name="model" id="model" />
+                <label for="manufacturer">manufacturer:</label>
+                <input type="text" name="manufacturer" id="manufacturer" />
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price" />
+                <label for="feature_id">Select Feature ID:</label>
+                <select name="feature_id" id="feature_id">
+                    <option value="">Select a Feature</option>
+                    <% features.forEach(function(feature) { %>
+                        <option value="<%= feature.id %>">
+                            <%= feature.id %> -  <%= feature.dimensions %> - <%= feature.os %>
+                        </option>
+                        <% }); %>
+                </select>
+                <label for="description">Description:</label>
+                <!-- Careful formatting to avoid whitespace in textarea  -->
+                <textarea name="description" id="description"></textarea>
+                <input type="hidden" name="last_updated_by_staff_id" id="last_updated_by_staff_id" />
+                <input type="submit" class="button" value="create" name="action" />
+
+            </form>
+            </section>
+
+            <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>

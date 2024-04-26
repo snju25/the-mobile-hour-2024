@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Admin Products</title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <%- include("partials/admin_nav.ejs")%>
+    
+    <a href="/create_product" class="button js-button">Create New Product</a>
+    <a href="/create_feature" ><button  class="button">Create/Update features</button></a>
+
+    <section class="product_edit_page">
+        <section class="cols-6 data-list">
+            <span class="data-list-heading">Name</span>
+            <span class="data-list-heading">Model</span>
+            <span id="mobile-view" class="data-list-heading">Manufacturer</span>
+            <span  class="data-list-heading">Price</span>
+            <span id="mobile-view" class="data-list-heading">Stock</span>
+            <span id="mobile-view" class="data-list-heading">feature ID</span>
+            <span id="mobile-view" class="data-list-heading">Staff Last Updated by</span>
+            <span></span>
+
+            <% for (let productStaff of productsStaff) { %>
+            <span><%= productStaff.product_name %></span>
+            <span><%= productStaff.product_model %></span>
+            <span id="mobile-view"><%= productStaff.product_manufacturer %></span>
+            <span ><%= productStaff.product_price %></span>
+            <span id="mobile-view"><%= productStaff.product_stock %></span>
+            <span id="mobile-view"><%= productStaff.product_feature_id %></span>
+            <span id="mobile-view"><%= productStaff.staff_id %></span>
+            <a href="/product_admin?edit_id=<%= productStaff.product_id %>" class="button">Edit</a>
+            <% } %>
+        
+        </section>
+    </section>
+
+    <%- include('partials/footer.ejs') %>
+    
+</body>
+</html>

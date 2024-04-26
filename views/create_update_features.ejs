@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Admin Features</title>
+</head>
+<body>
+    <main>
+    <%- include("partials/header.ejs") %> 
+    <%-include("partials/admin_nav.ejs") %> <!-- { accessRole } -->
+
+    <a href="/create_new_feature" class="button">Create New Feature</a>
+    <hr>
+    <section class="product_edit_page">
+        <section class="cols-13 data-list scrollmenu">
+            <span class="data-list-heading">Feature ID</span>
+            <span class="data-list-heading">Weight</span>
+            <span class="data-list-heading">Dimension</span>
+            <span class="data-list-heading">OS</span>
+            <span class="data-list-heading">Screen Size</span>
+            <span class="data-list-heading">Resolution</span>
+            <span class="data-list-heading">CPU</span>
+            <span class="data-list-heading">RAM</span>
+            <span class="data-list-heading">Storage</span>
+            <span class="data-list-heading">Battery</span>
+            <span class="data-list-heading">Front-Camera</span>
+            <span class="data-list-heading">Rear-Camera</span>
+            <span></span>
+            <% for (let feature of AllFeatures) { %>
+            <span><%= feature.id %></span>
+            <span><%= feature.weight %></span>
+            <span><%= feature.dimensions %></span>
+            <span><%= feature.os %></span>
+            <span><%= feature.screen_size %></span>
+            <span><%= feature.resolution %></span>
+            <span><%= feature.cpu %></span>
+            <span><%= feature.ram %></span>
+            <span><%= feature.storage %></span>
+            <span><%= feature.battery %></span>
+            <span><%= feature.front_camera %></span>
+            <span><%= feature.rear_camera %></span>
+            <a href="/create_feature?edit_id=<%= feature.id %>" class="button">
+                Edit
+            </a>
+            <% } %>
+        </section>
+        <form>
+
+        </form>
+
+    </main>
+     <%- include("partials/footer.ejs") %>
+    
+</body>
+</html>

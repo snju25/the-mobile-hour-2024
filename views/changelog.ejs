@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs") %>
+        <title>Admin Changelog</title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <%- include("partials/admin_nav.ejs")%>
+            <section>
+                <section class="cols-4 data-list">
+                <span class="data-list-heading">Changelog Date</span>
+                <span class="data-list-heading">Product Name</span>
+                <span class="data-list-heading">Staff username</span>
+                <span class="data-list-heading">Message</span>
+                <% for (let changelog of allEntries) { %>
+                    <span>
+                        <%= changelog.date.toLocaleString() %>
+                    </span>
+                    <span>
+                        <%= changelog.productName %>
+                    </span>
+                    <span>
+                        <%= changelog.staffUsername %>
+                    </span>
+                    <span>
+                        <%= changelog.message %>
+                    </span>
+
+                <% } %>
+            </section>
+            </section>
+
+            <%- include('partials/footer.ejs') %>
+
+
+</body>
+
+</html>
